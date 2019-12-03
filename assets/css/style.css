@@ -1,0 +1,21 @@
+form {
+    display: flex;
+    flex-direction: row;
+}
+
+.campos {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+}
+
+table {
+    border: 2px solid red;
+    margin: 20px;
+}
+
+th,
+td {
+    border: 1px solid red;
+    padding: 0 10px;
+}

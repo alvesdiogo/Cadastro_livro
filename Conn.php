@@ -1,25 +1,31 @@
 <?php
 
+/**
+ * Sempre que usar static, passar nas conexões self::
+ * Atributos podem ser, public, protected ou private
+ * 
+ */
+
 class Conn
 {
-    public static $Host = "localhost";
-    public static $User = "root";
-    public static $Pass = "root";
-    public static $Dbname = "db_livros";
-    public static $Connect = null;
+    public static $_host = "localhost";
+    public static $_user = "root";
+    public static $_pass = "root";
+    public static $_dbName = "db_livros";
+    private static $_connect = null;
 
     private static function Conectar()
     {
         try {
-            if (self::$Connect == null) :
-                self::$Connect = new PDO('mysql:host=' . self::$Host . ';dbname=' . self::$Dbname, self::$User, self::$Pass);
+            if (self::$_connect == null) :
+                self::$_connect = new PDO('mysql:host=' . self::$_host . ';dbname=' . self::$_dbName, self::$_user, self::$_pass);
             endif;
         } catch (Exception $ex) {
             echo 'Mensagem: ' . $ex->getMessage();
             die;
         }
 
-        return self::$Connect;
+        return self::$_connect;
     }
 
     public function getConn()

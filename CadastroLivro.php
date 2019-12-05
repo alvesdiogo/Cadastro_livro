@@ -2,32 +2,38 @@
 
 class CadastroLivro
 {
-    public $NomeLivro;
-    public $Autor;
-    public $Editora;
+    protected $_nomeLivro;
+    protected $_autor;
+    protected $_editora;
 
-    function setBiblioteca($NomeLivro, $Autor, $Editora)
+    public function __construct($nomeLivro, $autor, $editora)
     {
-        $this->NomeLivro = $NomeLivro;
-        $this->Autor = $Autor;
-        $this->Editora = $Editora;
+        //ERRADO
+        // $this->NomeLivro = $NomeLivro;
+        // $this->Autor = $Autor;
+        // $this->Editora = $Editora;
+
+        //CORRETO
+        $this->setLivro($nomeLivro);
+        $this->setAutor($autor);
+        $this->setAutor($editora);
     }
 
-    function verLivro()
+    function setLivro($nome)
     {
-        return $this->NomeLivro;
+        $this->_nomeLivro = $nome;
     }
-    function verAutor()
+    function setAutor($autor)
     {
-        return $this->Autor;
+        $this->_autor = $autor;
     }
-    function verEditora()
+    function setEditora($editora)
     {
-        return $this->Editora;
+        $this->_editora = $editora;
     }
 
     function getBiblioteca()
     {
-        return "Livro: {$this->NomeLivro} <br> Autor: {$this->Autor} <br> Editora: {$this->Editora}<hr>";
+        return "Livro: {$this->_nomeLivro} <br> Autor: {$this->_autor} <br> Editora: {$this->_editora}<hr>";
     }
 }
